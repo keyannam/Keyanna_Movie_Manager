@@ -1,3 +1,7 @@
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+  <h1 div class="text-center">Enter A New Movie</h1>
+
 <%= form_for(@movie) do |f| %>
   <% if @movie.errors.any? %>
     <div id="error_explanation">
@@ -11,23 +15,23 @@
     </div>
   <% end %>
 
-    <div class="field">
-      <%= f.label :title %><br>
-      <%= f.text_area :title %>
+    <div class="form-group">
+      <%= f.label :title  %><br>
+      <%= f.text_field :title, class: "form-control" %>
     </div>
-    <div class="field">
-      <%= f.label :format %><br>
-      <%= f.select :format, options_for_select(%w[VHS DVD Streaming]) %>
+    <div class="form-group">
+      <%= f.label :format, false, placeholder: "Format" %><br>
+      <%= f.select :format, options_for_select(%w[VHS DVD Streaming]), class: "form-control" %>
     </div>
-    <div class="field">
+    <div class="form-group">
       <%= f.label :length_in_mins  %><br>
       <%= f.number_field :length %>
     </div>
-    <div class="field">
+    <div class="form-group">
       <%= f.label :release_year %><br>
       <%= f.number_field :release_year %>
     </div>
-    <div class="field">
+    <div class="form-group">
       <%= f.label :rating %><br>
       <%= f.number_field :rating %>
     </div>

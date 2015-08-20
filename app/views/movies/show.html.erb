@@ -1,29 +1,17 @@
-<p id="notice"><%= notice %></p>
+<div class="text-center">
+  <div class="row">
+    <ul class="list-group">
+    <li class="list-group-item"><h2><%= @movie.title %></h2></li>
+    <li class="list-group-item"><h2><%= @movie.format %></h2></li>
+    <li class="list-group-item"><h2><%= @movie.length %></h2></li>
+    <li class="list-group-item"><h2><%= @movie.release_year %></h2></li>
+    <li class="list-group-item"><h2><%= @movie.rating %> stars</h2></li>
+    </ul>
+  </div>
 
-<p>
-  <strong>Title:</strong>
-  <%= @movie.title %>
-</p>
-
-<p>
-  <strong>Format:</strong>
-  <%= @movie.format %>
-</p>
-
-<p>
-  <strong>Length:</strong>
-  <%= @movie.length %>
-</p>
-
-<p>
-  <strong>Release year:</strong>
-  <%= @movie.release_year %>
-</p>
-
-<p>
-  <strong>Rating:</strong>
-  <%= @movie.rating %>
-</p>
-
-<%= link_to 'Edit', edit_movie_path(@movie) %> |
-<%= link_to 'Back', movies_path %>
+<div class="btn-group" role="group" aria-label="buttons">
+  <button type="button" class="btn btn-default"><%= link_to 'Edit', edit_movie_path(@movie) %></button>
+  <button type="button" class="btn btn-default"><%= link_to 'Back', movies_path %></button>
+  <button type="button" class="btn btn-default"><%= link_to 'Destroy', @movie, method: :delete, data: { confirm: 'Are you sure?' } %>
+</button>
+</div>
