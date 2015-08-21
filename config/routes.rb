@@ -1,5 +1,12 @@
 Rails.application.routes.draw do
-  root 'movies#home'
+  root 'pages#home'
+
+  get 'pages/profile'
+
+  get 'auth/:provider/callback', to: "sessions#create"
+
+  delete 'sign_out', to: "sessions#destroy", as: 'sign_out'
+
   resources :movies
 
   # The priority is based upon order of creation: first created -> highest priority.

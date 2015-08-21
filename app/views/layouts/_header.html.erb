@@ -14,10 +14,20 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
-
-      <ul class="nav navbar-nav navbar-right">
+      <ul class="nav navbar-nav navbar-left">
         <li><%= link_to "All Movies", movies_path %></li>
         <li><%= link_to "New Movie", new_movie_path %></li>
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+        <% if current_user %>
+        <li>Signed in as: <% current_user.name %> - <%= image_tag @auth['info']['image'], width: '50', height: '50' %></li>
+        <li><%= link_to "Sign Out", 'sign_out', method: :delete %></li>
+        <% else %>
+        <li><%= link_to "auth/facebook" do %><%= image_tag('facebook.png', width: '30', height: '30', class: 'img-circle') %><% end %></li>
+        <li><%= link_to "auth/twitter" do %><%= image_tag('twitter.png', width: '30', height: '30', class: 'img-circle') %><% end %></li>
+        <li><%= link_to "auth/github" do %><%= image_tag('github.png', width: '30', height: '30', class: 'img-circle') %><% end %></li>
+      <% end %>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
